@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Tonemapping - Rendering Components</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="If you don&rsquo;t know the theory and methods behind Tonemapping, it&rsquo;s simply a tool to adjust the color like color grading. But they are not the same thing. Tonemappin&rsquo;s purpose is to conver the High Dynamic Range (HDR) color to Standard Dynamic Range (SDR).
+Video game always uses coor value exceeds the range between 0 and 1, like bloom and or HDR texture. To display these color, Tonemapping is used to remap the color in the post-processing." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/post/tonemapping/">
+  <meta property="og:site_name" content="Rendering Components">
+  <meta property="og:title" content="Tonemapping">
+  <meta property="og:description" content="If you don’t know the theory and methods behind Tonemapping, it’s simply a tool to adjust the color like color grading. But they are not the same thing. Tonemappin’s purpose is to conver the High Dynamic Range (HDR) color to Standard Dynamic Range (SDR).
+Video game always uses coor value exceeds the range between 0 and 1, like bloom and or HDR texture. To display these color, Tonemapping is used to remap the color in the post-processing.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-02-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-02-04T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tonemapping">
+  <meta name="twitter:description" content="If you don’t know the theory and methods behind Tonemapping, it’s simply a tool to adjust the color like color grading. But they are not the same thing. Tonemappin’s purpose is to conver the High Dynamic Range (HDR) color to Standard Dynamic Range (SDR).
+Video game always uses coor value exceeds the range between 0 and 1, like bloom and or HDR texture. To display these color, Tonemapping is used to remap the color in the post-processing.">
+
+	
+        <link href="http://localhost:1313/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.fa747a9bb099b7bfd5d71b78a6e8ca2e23a425384e48bf533f1d357aeb61d265.css" />
+
+	
+	
+		<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [['$','$'], ['\\(','\\)']],
+				displayMath: [['$$','$$'], ['\[','\]']],
+				processEscapes: true,
+				processEnvironments: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+				TeX: { equationNumbers: { autoNumber: "AMS" },
+						 extensions: ["AMSmath.js", "AMSsymbols.js"] }
+			}
+		});
+		</script>
+	
+
+	
+	
+
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Rendering Components</a>
+	</div>
+	<nav>
+		
+		<a href="/posts">Posts</a>
+		
+		<a href="/about">About</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Tonemapping</h1>
+			<div class="meta">Posted on Feb 4, 2024</div>
+		</div>
+		
+
+		
+
+		<section class="body">
+			<p>If you don&rsquo;t know the theory and methods behind Tonemapping, it&rsquo;s simply a tool to adjust the color like color grading. But they are not the same thing. Tonemappin&rsquo;s purpose is to conver the High Dynamic Range (HDR) color to Standard Dynamic Range (SDR).</p>
+<p>Video game always uses coor value exceeds the range between 0 and 1, like bloom and or HDR texture. To display these color, Tonemapping is used to remap the color in the post-processing.</p>
+<h1 id="reinhard">Reinhard</h1>
+<p>Paper: <a href="https://www-old.cs.utah.edu/docs/techreports/2002/pdf/UUCS-02-001.pdf">Photographic Tone Reproduction for Digital Images</a></p>
+<p>Reinhard Tonemapping focus on luminance instead of RGB.</p>
+<p>$$
+L = 0.2125R + 0.7152G + 0.0722B
+$$</p>
+<p>Simple Reinhard Tone mapping. High luminance is scaled by $1 / L$ , and the low luminance is scaled by 1. This brings all luminance within a displayable range. The result is not always desirable.
+$$
+L_d(x, y) = \frac{L(x, y)}{1 + L(x, y)}
+$$</p>
+<p>Extended Reinhard Tone mapping
+$$
+L_d(x, y) = \frac{L(x, y) (1 + \frac{L(x,y)}{L^2_{white}})}{1 + L(x, y)}
+$$
+$L_{white}$ is the white point, where the lowest value remapped to 1 (pure white).</p>
+<p>The common approach to color treatment in tone mapping by Schlick is preserving color ratios.</p>
+<p>$$
+C_{out} = \frac{C_{in}}{L_{in}} L_{out}
+$$
+Mantiuk implemented other implementation in his <a href="https://www.cl.cam.ac.uk/%7Erkm38/pdfs/mantiuk09cctm.pdf">paper</a>;</p>
+<p><strong>Luminance vs. Luma</strong></p>
+<p>luma = luminance of an sRGB color (gamma-corrected)</p>
+<p>Applying tonemapping on luminance could cause hue/saturation shift. It&rsquo;s not always desired.</p>
+<p>Naty Hoffman&rsquo;s <a href="https://imdoingitwrong.wordpress.com/2010/08/19/why-reinhard-desaturates-my-blacks-3/#comment-3">thoughts</a> on this Reinhard Tonemapping.</p>
+<blockquote>
+<p>Reinhard was on the wrong track in applying his tone mapping curve to luminance; his curve was inspired by film, but film curves are applied to each color channel separately.</p>
+</blockquote>
+<h1 id="filmic-tonemapping">Filmic Tonemapping</h1>
+<p>&ldquo;Filmic&rdquo; tonemapping emulates real film.</p>
+<p>Three parts:</p>
+<ul>
+<li>Toe gives crisper black</li>
+<li>Linear stays relatively unchanged</li>
+<li>Shoulder gives softer transition to overexposed highlights.</li>
+</ul>
+<p><strong>Uncharted 2 by <a href="http://filmicworlds.com/blog/filmic-tonemapping-operators/">John Hable</a></strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hlsl" data-lang="hlsl"><span style="display:flex;"><span><span style="color:#66d9ef">float</span> A <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.15</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> B <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.50</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> C <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> D <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.20</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> E <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.02</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> F <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.30</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float</span> W <span style="color:#f92672">=</span> <span style="color:#ae81ff">11.2</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float3</span> Uncharted2Tonemap(<span style="color:#66d9ef">float3</span> x)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> ((x<span style="color:#f92672">*</span>(A<span style="color:#f92672">*</span>x<span style="color:#f92672">+</span>C<span style="color:#f92672">*</span>B)<span style="color:#f92672">+</span>D<span style="color:#f92672">*</span>E)<span style="color:#f92672">/</span>(x<span style="color:#f92672">*</span>(A<span style="color:#f92672">*</span>x<span style="color:#f92672">+</span>B)<span style="color:#f92672">+</span>D<span style="color:#f92672">*</span>F))<span style="color:#f92672">-</span>E<span style="color:#f92672">/</span>F;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">float4</span> ps_main( <span style="color:#66d9ef">float2</span> texCoord  <span style="color:#f92672">:</span> TEXCOORD0 ) <span style="color:#f92672">:</span> COLOR
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">float3</span> texColor <span style="color:#f92672">=</span> tex2D(Texture0, texCoord );
+</span></span><span style="display:flex;"><span>   texColor <span style="color:#f92672">*=</span> <span style="color:#ae81ff">16</span>;  <span style="color:#75715e">// Hardcoded Exposure Adjustment</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">float</span> ExposureBias <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0f</span>;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">float3</span> curr <span style="color:#f92672">=</span> Uncharted2Tonemap(ExposureBias<span style="color:#f92672">*</span>texColor);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">float3</span> whiteScale <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0f</span><span style="color:#f92672">/</span>Uncharted2Tonemap(W);
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">float3</span> color <span style="color:#f92672">=</span> curr<span style="color:#f92672">*</span>whiteScale;
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">float3</span> retColor <span style="color:#f92672">=</span> pow(color,<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2.2</span>);
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">float4</span>(retColor,<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Hable later create a <a href="http://filmicworlds.com/blog/filmic-tonemapping-with-piecewise-power-curves/">improved curve</a> that has intuitive controls.</p>
+<p><strong>ACES</strong></p>
+<p>Academy Color Encoding System. It usually involves matrix transformations.
+<a href="https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/ACES.hlsl">Stephen Hill</a>&rsquo;s implementation.</p>
+<p><a href="https://knarkowicz.wordpress.com/2016/01/06/aces-filmic-tone-mapping-curve/">Krzysztof Narkowicz</a> approximated a simpler curve.</p>
+<ul>
+<li>Color is multiplied exposure before the tonemapping, and do the gamma after.</li>
+<li>simple luminance only fit and over saturates bright colors. It fits their art direction. For more realistic rendering, Narkowicz suggests Stephen Hill&rsquo;s.</li>
+</ul>
+<hr>
+<h1 id="sources">Sources</h1>
+<p>“Film Contrast Characteristics.” <em>Archive.org</em>, 2025, <a href="web.archive.org/web/20201031155700/www.sprawls.org/ppmi2/FILMCON">web.archive.org/web/20201031155700/www.sprawls.org/ppmi2/FILMCON/.</a></p>
+<p>“Tone Mapping.” <em>Github.io</em>, 2019, <a href="64.github.io/tonemapping/#local-tone-mapping-operators">64.github.io/tonemapping/#local-tone-mapping-operators</a>.</p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			
+		</div>
+		</article>
+</main>
+<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  © 2025 Kyle |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+</div>
+    </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Depth - Rendering Components</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="The best explaination about depth in rendering is by Cyanilux.
+Early Depth Test, Alpha Test, Overdraw One example using depth to optimize the rendering is the early depth test. The depth value of the incoming pixel is compared to the existing value in the depth buffer. The depth test passes when the comparison satisfies the depth test function. It skips the pixel shading, otherwise. In this way, the GPU rejects many shading calculation of the occluded objects." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/post/depth/">
+  <meta property="og:site_name" content="Rendering Components">
+  <meta property="og:title" content="Depth">
+  <meta property="og:description" content="The best explaination about depth in rendering is by Cyanilux.
+Early Depth Test, Alpha Test, Overdraw One example using depth to optimize the rendering is the early depth test. The depth value of the incoming pixel is compared to the existing value in the depth buffer. The depth test passes when the comparison satisfies the depth test function. It skips the pixel shading, otherwise. In this way, the GPU rejects many shading calculation of the occluded objects.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2023-05-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-05-11T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Depth">
+  <meta name="twitter:description" content="The best explaination about depth in rendering is by Cyanilux.
+Early Depth Test, Alpha Test, Overdraw One example using depth to optimize the rendering is the early depth test. The depth value of the incoming pixel is compared to the existing value in the depth buffer. The depth test passes when the comparison satisfies the depth test function. It skips the pixel shading, otherwise. In this way, the GPU rejects many shading calculation of the occluded objects.">
+
+	
+        <link href="http://localhost:1313/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.fa747a9bb099b7bfd5d71b78a6e8ca2e23a425384e48bf533f1d357aeb61d265.css" />
+
+	
+	
+		<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [['$','$'], ['\\(','\\)']],
+				displayMath: [['$$','$$'], ['\[','\]']],
+				processEscapes: true,
+				processEnvironments: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+				TeX: { equationNumbers: { autoNumber: "AMS" },
+						 extensions: ["AMSmath.js", "AMSsymbols.js"] }
+			}
+		});
+		</script>
+	
+
+	
+	
+
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Rendering Components</a>
+	</div>
+	<nav>
+		
+		<a href="/posts">Posts</a>
+		
+		<a href="/about">About</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Depth</h1>
+			<div class="meta">Posted on May 11, 2023</div>
+		</div>
+		
+
+		
+
+		<section class="body">
+			<p>The best explaination about depth in rendering is by <a href="https://www.cyanilux.com/tutorials/depth/">Cyanilux</a>.</p>
+<h1 id="early-depth-test-alpha-test-overdraw">Early Depth Test, Alpha Test, Overdraw</h1>
+<p>One example using depth to optimize the rendering is the early depth test. The depth value of the incoming pixel is compared to the existing value in the depth buffer. The depth test passes when the comparison satisfies the depth test function. It skips the pixel shading, otherwise. In this way, the GPU rejects many shading calculation of the occluded objects.</p>
+<p>Alpha Test checks the pixel&rsquo;s alpha value to determine whether it should discard. In other words, it need to reach the pixel shading first, so the early depth test would be turned off, leading to overdraw.</p>
+<p>Overdraw is simly drawing the same pixel  multiple times, because depth test is bypassed by Alpha Test. This increases GPU workload, resulting in poor performance on mobile platform.</p>
+<h1 id="depth-texture">Depth Texture</h1>
+<p>Depth texture stores the the depth buffer&rsquo;s value but in the range <code>[0,1]</code> based on the near and the far clip planes of the camera. Unity&rsquo;s depth texture is <code>_CameraDepthTexture</code>.
+Depth texture is created before rendering the translucent objects, so only opaque objects contribute to the depth buffer. That is why only transparent rendering can sample the depth texture in Unity.</p>
+<p><strong>World Space Position Reconstruction</strong></p>
+<p>Unity&rsquo;s URP documentation provideds an <a href="https://docs.unity3d.com/6000.0/Documentation/Manual/urp/writing-shaders-urp-reconstruct-world-position.html">example</a> of reconstructing the world space position from the depth buffer. This is commonly used in many post-processing effect, like screen space <a href="https://www.youtube.com/watch?v=f7iO9ernEmM">decal</a>/ambient occlusion/global illumination/reflection, or <a href="https://ameye.dev/notes/edge-detection-outlines/">edge detection</a>,</p>
+<p>Or the detecting/scanning VFX you can see in many games.</p>
+<h1 id="sources">Sources</h1>
+<p>Ameye, Alexander. “Edge Detection Outlines.” <em>Ameye.dev</em>, 2022, <a href="ameye.dev/notes/edge-detection-outlines">ameye.dev/notes/edge-detection-outlines</a></p>
+<p>Cyanilux. “Depth.” <em>Cyanilux.com</em>, 25 Nov. 2020, <a href="www.cyanilux.com/tutorials/depth">www.cyanilux.com/tutorials/depth</a></p>
+<p>Daniel Ilett. “Decals &amp; Stickers in Unity Shader Graph and URP.” <em>YouTube</em>, 26 Sept. 2021, <a href="www.youtube.com/watch?v=f7iO9ernEmM">www.youtube.com/watch?v=f7iO9ernEmM</a>.</p>
+<p>Unity Technologies. “Unity - Manual: Reconstruct World Space Positions in a Shader in URP.” <em>Unity3d.com</em>, 2024, <a href="docs.unity3d.com/6000.0/Documentation/Manual/urp/writing-shaders-urp-reconstruct-world-position.html">docs.unity3d.com/6000.0/Documentation/Manual/urp/writing-shaders-urp-reconstruct-world-position.html</a></p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			
+		</div>
+		</article>
+</main>
+<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  © 2025 Kyle |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+</div>
+    </body>
+</html>

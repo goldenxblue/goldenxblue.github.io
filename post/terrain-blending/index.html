@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Terrain Blending - Rendering Components</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Demo Method A common technique for blending objects with terrain involves using depth as an lerp factor. It usually requires first rendering the terrain and saving its color and depth information to separate textures. Then the objects rendered subsequently use the color and depth texture to blend the terrain and objects.
+todo: insert genshin and wuthering wave terrain blending effect.
+An enhanced approach to this technique, suggested by Wang in GDC 2023, involves rendering the terrain twice: once in the opaque pass and once in the transparent pass." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/post/terrain-blending/">
+  <meta property="og:site_name" content="Rendering Components">
+  <meta property="og:title" content="Terrain Blending">
+  <meta property="og:description" content="Demo Method A common technique for blending objects with terrain involves using depth as an lerp factor. It usually requires first rendering the terrain and saving its color and depth information to separate textures. Then the objects rendered subsequently use the color and depth texture to blend the terrain and objects.
+todo: insert genshin and wuthering wave terrain blending effect.
+An enhanced approach to this technique, suggested by Wang in GDC 2023, involves rendering the terrain twice: once in the opaque pass and once in the transparent pass.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2023-10-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-10-17T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terrain Blending">
+  <meta name="twitter:description" content="Demo Method A common technique for blending objects with terrain involves using depth as an lerp factor. It usually requires first rendering the terrain and saving its color and depth information to separate textures. Then the objects rendered subsequently use the color and depth texture to blend the terrain and objects.
+todo: insert genshin and wuthering wave terrain blending effect.
+An enhanced approach to this technique, suggested by Wang in GDC 2023, involves rendering the terrain twice: once in the opaque pass and once in the transparent pass.">
+
+	
+        <link href="http://localhost:1313/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.fa747a9bb099b7bfd5d71b78a6e8ca2e23a425384e48bf533f1d357aeb61d265.css" />
+
+	
+	
+		<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [['$','$'], ['\\(','\\)']],
+				displayMath: [['$$','$$'], ['\[','\]']],
+				processEscapes: true,
+				processEnvironments: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+				TeX: { equationNumbers: { autoNumber: "AMS" },
+						 extensions: ["AMSmath.js", "AMSsymbols.js"] }
+			}
+		});
+		</script>
+	
+
+	
+	
+
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Rendering Components</a>
+	</div>
+	<nav>
+		
+		<a href="/posts">Posts</a>
+		
+		<a href="/about">About</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Terrain Blending</h1>
+			<div class="meta">Posted on Oct 17, 2023</div>
+		</div>
+		
+
+		
+
+		<section class="body">
+			<h1 id="demo">Demo</h1>
+<h1 id="method">Method</h1>
+<p>A common technique for blending objects with terrain involves using depth as an <code>lerp</code> factor. It usually requires first rendering the terrain and saving its color and depth information to separate textures. Then the objects rendered subsequently use the color and depth texture to blend the terrain and objects.</p>
+<p>todo: insert genshin and wuthering wave terrain blending effect.</p>
+<p>An enhanced approach to this technique, suggested by Wang in GDC 2023, involves rendering the terrain twice: once in the opaque pass and once in the transparent pass. During the initial opaque pass, the terrain is rendered normally and masked by stencil. In the transparent pass, the terrain vertices are slightly shifted towards the camera to create a small seams between the objects and terrain. This seams can use the depth and color texture (or GBuffer) created by pipeline without creating extra textures. This second pass skips pixels already rendered in the first pass, thanks to the stencil test.</p>
+<h1 id="sources">Sources</h1>
+<p><em>Cross-Platform Mobile and PC Rendering in “Earth: Revival.”</em> 2023, <a href="https://www.gdcvault.com/play/1028751/Cross-Platform-Mobile-and-PC">https://www.gdcvault.com/play/1028751/Cross-Platform-Mobile-and-PC</a>.</p>
+<p>Simon. <em>Deus Ex – Alpha Terrain | Simonschreibt.</em> 28 May 2023, <a href="https://simonschreibt.de/gat/deus-ex-alpha-terrain/">https://simonschreibt.de/gat/deus-ex-alpha-terrain/</a>.</p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			
+		</div>
+		</article>
+</main>
+<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  © 2025 Kyle |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+</div>
+    </body>
+</html>

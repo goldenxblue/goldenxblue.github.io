@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Single Layer Water - Rendering Components</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Unreal Engine has a physically-based shading model for its single-layer water material. Instead of using a predefined water color, it calculates the water color through light scattering and absorption.
+Some tutorials also mentioned this appraoch:
+Yet Another Stylised Water Shader by Remy. Realistic Water Colour in ShaderGraph by eleonora I went through Unreal&rsquo;s shading code and figured the absorption and scattering light calculation part. It&rsquo;s a interesting method so here I am sharing with you if you don&rsquo;t want to read code." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/post/single-layer-water/">
+  <meta property="og:site_name" content="Rendering Components">
+  <meta property="og:title" content="Single Layer Water">
+  <meta property="og:description" content="Unreal Engine has a physically-based shading model for its single-layer water material. Instead of using a predefined water color, it calculates the water color through light scattering and absorption.
+Some tutorials also mentioned this appraoch:
+Yet Another Stylised Water Shader by Remy. Realistic Water Colour in ShaderGraph by eleonora I went through Unreal’s shading code and figured the absorption and scattering light calculation part. It’s a interesting method so here I am sharing with you if you don’t want to read code.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-10-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-29T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Single Layer Water">
+  <meta name="twitter:description" content="Unreal Engine has a physically-based shading model for its single-layer water material. Instead of using a predefined water color, it calculates the water color through light scattering and absorption.
+Some tutorials also mentioned this appraoch:
+Yet Another Stylised Water Shader by Remy. Realistic Water Colour in ShaderGraph by eleonora I went through Unreal’s shading code and figured the absorption and scattering light calculation part. It’s a interesting method so here I am sharing with you if you don’t want to read code.">
+
+	
+        <link href="http://localhost:1313/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.fa747a9bb099b7bfd5d71b78a6e8ca2e23a425384e48bf533f1d357aeb61d265.css" />
+
+	
+	
+		<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [['$','$'], ['\\(','\\)']],
+				displayMath: [['$$','$$'], ['\[','\]']],
+				processEscapes: true,
+				processEnvironments: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+				TeX: { equationNumbers: { autoNumber: "AMS" },
+						 extensions: ["AMSmath.js", "AMSsymbols.js"] }
+			}
+		});
+		</script>
+	
+
+	
+	
+
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Rendering Components</a>
+	</div>
+	<nav>
+		
+		<a href="/posts">Posts</a>
+		
+		<a href="/about">About</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Single Layer Water</h1>
+			<div class="meta">Posted on Oct 29, 2024</div>
+		</div>
+		
+
+		
+
+		<section class="body">
+			<p>Unreal Engine has a physically-based shading model for its single-layer water material. Instead of using a predefined water color, it calculates the water color through light scattering and absorption.</p>
+<p>Some tutorials also mentioned this appraoch:</p>
+<ul>
+<li><a href="https://halfpastyellow.com/blog/2020/10/01/Yet-Another-Stylised-Water-Shader.html">Yet Another Stylised Water Shader</a> by Remy.</li>
+<li><a href="https://www.youtube.com/watch?v=S4RrVKBEaDw">Realistic Water Colour in ShaderGraph</a> by eleonora</li>
+</ul>
+<p>I went through Unreal&rsquo;s shading code and figured the absorption and scattering light calculation part. It&rsquo;s a interesting method so here I am sharing with you if you don&rsquo;t want to read code. Note that this only covers a small portion of the complete shading model.</p>
+<p>Before explaining the code parts, we should know two phenomena occur when light travels through the water: scattering and absorption. Scattered light bounce within the water to create visible light, while certain wavelength of light are absorbed and go extinct.</p>
+<p>To recreate light scattering and absorption, Unreal used <a href="https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law">Beer-Lambert</a> law to calculate light transmittance:</p>
+<p>$$T=e^{−(σ_s​+ σ_a​)⋅d}$$</p>
+<p>$T$ is the transmittance. It measures how much light can pass through the water.
+Sigma s and sigma a are the scattering and absorption coefficients. The sum of them is the extinction coefficient.
+$d$ is the path length or depth of the medium the light travels through.</p>
+<p>Scattering and absorption coefficients are user defined. $d$ is the depth difference between the water surface and the geometry surface under the water.</p>
+<p><a href="https://ameye.dev/notes/stylized-water-shader/">Stylized Water Shader</a> by Alexander Ameye shows two methods for calculating depth difference: camera-relative and world-space.
+Unreal appears utilize both approaches.</p>
+<p>Unreal applied transmittance in multiple parts of their shading model. Here are two parts: the <strong>scene luminance behind the water</strong> and the <strong>scattered luminance</strong>.</p>
+<p>(Side note: I don&rsquo;t know why Unreal call them &ldquo;luminance&rdquo;, the measurement of light intensity, instead of &ldquo;light color&rdquo;. Maybe there&rsquo;s a reason hide behind the code that I didn&rsquo;t read yet.)</p>
+<p>Multiplying the transmittance by the scene color gives the scene luminance behind the water. We can take it as the light go through the water from the scene behind water.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#f92672">//</span> calcualte the transmittance
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> float3 MeanTransmittanceToLightSources <span style="color:#f92672">=</span> exp(<span style="color:#f92672">-</span>DistanceFromScenePixelToWaterTop <span style="color:#f92672">*</span> ExtinctionCoeff);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> get sample the scene color under the water
+</span></span><span style="display:flex;"><span>float3 BehindWaterSceneLuminance <span style="color:#f92672">=</span> SceneColorWithoutSingleLayerWaterTexture<span style="color:#f92672">.</span>SampleLevel(SceneColorWithoutSingleLayerWaterSampler, ViewportUV, <span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>rgb;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">//</span> the result 
+</span></span><span style="display:flex;"><span>BehindWaterSceneLuminance <span style="color:#f92672">=</span> MeanTransmittanceToLightSources <span style="color:#f92672">*</span> ResolvedView<span style="color:#f92672">.</span>OneOverPreExposure <span style="color:#f92672">*</span> BehindWaterSceneLuminance;
+</span></span></code></pre></div><p>Scattering luminance is a bit complicated to understand to me. We can break it down.</p>
+<ul>
+<li><code>ExtinctionCoeff</code> is the total light loss: scattered and absorbed.</li>
+<li><code>1 - Transmittance</code> is the light that did NOT pass through the water.</li>
+<li><code>ScatteringCoeff * (1.0f - Transmittance)</code> is the scattered light that did NOT pass through the water.</li>
+<li>the final saturated division by <code>ExtinctionCoeff</code> gives the percentage of scattered light relative to total light loss. In other words, &ldquo;if we lost <code>ExtinctionCoeff</code> amount of light, what is the percentage of the scattering light?&rdquo;</li>
+<li>finally, multiplying by the <code>IncomingLuminance</code>, we get the scattered light.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>float3 ExtinctionCoeff = ScatteringCoeff + AbsorptionCoeff;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>float3 SafeScatteringAmount = saturate(ScatteringCoeff * (1.0f - Transmittance) / ExtinctionCoeffSafe);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>float3 ScatteredLuminance = IncomingLuminance * SafeScatteringAmount;
+</span></span></code></pre></div><p>Phew, math is never my strength, so that&rsquo;s my way to understand these calculation. Unreal added them together with many scaling factor multiplication, like opacity, exposure, fresnel, environment BRDF … So this is not complete code. I only took this part because it adds a nice touch of realism.</p>
+<h1 id="sources">Sources</h1>
+<p>Works CitedAmeye, Alexander. “Stylized Water Shader.” <em>Ameye.dev</em>, <a href="ameye.dev/notes/stylized-water-shader/.eleonora">ameye.dev/notes/stylized-water-shader/.eleonora</a></p>
+<p>“Realistic Water Colour in ShaderGraph.” <em>YouTube</em>, 6 Sept. 2023, <a href="www.youtube.com/watch?v=S4RrVKBEaDw">www.youtube.com/watch?v=S4RrVKBEaDw</a>.</p>
+<p>Wikipedia Contributors. “Beer–Lambert Law.” <em>Wikipedia</em>, Wikimedia Foundation, 30 May 2019, <a href="en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law">en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law</a>.</p>
+<p>“Yet Another Stylised Water Shader - Half Past Yellow | Blog.” <em>Halfpastyellow.com</em>, 2020, <a href="halfpastyellow.com/blog/2020/10/01/Yet-Another-Stylised-Water-Shader.html">halfpastyellow.com/blog/2020/10/01/Yet-Another-Stylised-Water-Shader.html</a>.</p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			
+		</div>
+		</article>
+</main>
+<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  © 2025 Kyle |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+</div>
+    </body>
+</html>
