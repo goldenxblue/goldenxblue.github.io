@@ -1,0 +1,26 @@
+baseURL = "https://example.com"
+languageCode = "en-us"
+title = "Rendering Components"
+theme="archie"
+copyright = "© 2025 Kyle"
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+[params]
+	mode="light"
+	useCDN=false
+	mathjax = true
+	subtitle = "Collecting rendering techniques in video game development"
+
+
+
+[[menu.main]]
+name = "Posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
