@@ -18,7 +18,7 @@ Overdraw is simly drawing the same pixel  multiple times, because depth test is 
 
 # Depth Texture
 
-Depth texture stores the the depth buffer's value but in the range ``[0,1]`` based on the near and the far clip planes of the camera. Unity's depth texture is `_CameraDepthTexture`. 
+Depth texture stores the the depth buffer's value but in the range "[0,1]" based on the near and the far clip planes of the camera. Unity's depth texture is `_CameraDepthTexture`. 
 Depth texture is created before rendering the translucent objects, so only opaque objects contribute to the depth buffer. That is why only transparent rendering can sample the depth texture in Unity.
 
 **World Space Position Reconstruction**

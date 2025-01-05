@@ -1,6 +1,6 @@
 baseURL = "https://example.com"
 languageCode = "en-us"
-title = "Rendering Components"
+title = "Golden Blue"
 theme="archie"
 copyright = "© 2025 Kyle"
 pygmentsstyle = "monokai"
@@ -10,7 +10,7 @@ pygmentscodefencesguesssyntax = true
 	mode="light"
 	useCDN=false
 	mathjax = true
-	subtitle = "Collecting rendering techniques in video game development"
+	subtitle = "A collection of rendering components in vdieo game development."
 
 
 

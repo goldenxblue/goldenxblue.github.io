@@ -3,4 +3,8 @@ title = "About"
 author = "Kyle Fang"
 +++
 
-Technical artist focused on real-time rendering and shader development. Through this blog, I share rendering techniques and experiments in computer graphics, documenting both technical details and visual results.
+Kyle, five years experience in technical art and computer graphics.
+
+Through this blog, I share rendering techniques and experiments in rendering, documenting both technical details and visual results.
+
+Learning Substance Designer and Houdini recently.
