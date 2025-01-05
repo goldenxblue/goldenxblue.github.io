@@ -60,15 +60,20 @@ float3 SafeScatteringAmount = saturate(ScatteringCoeff * (1.0f - Transmittance) 
 float3 ScatteredLuminance = IncomingLuminance * SafeScatteringAmount;
 ```
 
-Phew, math is never my strength, so that's my way to understand these calculation. Unreal added them together with many scaling factor multiplication, like opacity, exposure, fresnel, environment BRDF … So this is not complete code. I only took this part because it adds a nice touch of realism.
+Unreal added them together with many scaling factor multiplication, like opacity, exposure, fresnel, environment BRDF … So this is not complete code. I only took this part because it adds a nice touch of realism.
 
+By setting scattering coefficient to dark blue, and absorption between black and orange, it wil add a touch of green tint to the shallow water:
+
+![no-water](/no-water.png)
+
+![add-water](/add-water.png)
 
 # Sources
 
-Works CitedAmeye, Alexander. “Stylized Water Shader.” _Ameye.dev_, [ameye.dev/notes/stylized-water-shader/.eleonora](ameye.dev/notes/stylized-water-shader/.eleonora)
+1. Works CitedAmeye, Alexander. “Stylized Water Shader.” _Ameye.dev_, [ameye.dev/notes/stylized-water-shader/.eleonora](ameye.dev/notes/stylized-water-shader/.eleonora)
 
-“Realistic Water Colour in ShaderGraph.” _YouTube_, 6 Sept. 2023, [www.youtube.com/watch?v=S4RrVKBEaDw](www.youtube.com/watch?v=S4RrVKBEaDw).
+2. “Realistic Water Colour in ShaderGraph.” _YouTube_, 6 Sept. 2023, [www.youtube.com/watch?v=S4RrVKBEaDw](www.youtube.com/watch?v=S4RrVKBEaDw).
 
-Wikipedia Contributors. “Beer–Lambert Law.” _Wikipedia_, Wikimedia Foundation, 30 May 2019, [en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law](en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law).
+3. Wikipedia Contributors. “Beer–Lambert Law.” _Wikipedia_, Wikimedia Foundation, 30 May 2019, [en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law](en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law).
 
-“Yet Another Stylised Water Shader - Half Past Yellow | Blog.” _Halfpastyellow.com_, 2020, [halfpastyellow.com/blog/2020/10/01/Yet-Another-Stylised-Water-Shader.html](halfpastyellow.com/blog/2020/10/01/Yet-Another-Stylised-Water-Shader.html).
+4. “Yet Another Stylised Water Shader - Half Past Yellow | Blog.” _Halfpastyellow.com_, 2020, [halfpastyellow.com/blog/2020/10/01/Yet-Another-Stylised-Water-Shader.html](halfpastyellow.com/blog/2020/10/01/Yet-Another-Stylised-Water-Shader.html).

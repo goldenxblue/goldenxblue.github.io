@@ -10,13 +10,6 @@
     <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Placeholder Text</title>
-      <link>http://localhost:1313/post/drafts/placeholder-text/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/drafts/placeholder-text/</guid>
-      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Single Layer Water</title>
       <link>http://localhost:1313/post/single-layer-water/</link>
       <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
@@ -42,7 +35,7 @@
       <link>http://localhost:1313/post/terrain-blending/</link>
       <pubDate>Tue, 17 Oct 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/terrain-blending/</guid>
-      <description>Demo Method A common technique for blending objects with terrain involves using depth as an lerp factor. It usually requires first rendering the terrain and saving its color and depth information to separate textures. Then the objects rendered subsequently use the color and depth texture to blend the terrain and objects.&#xA;todo: insert genshin and wuthering wave terrain blending effect.&#xA;An enhanced approach to this technique, suggested by Wang in GDC 2023, involves rendering the terrain twice: once in the opaque pass and once in the transparent pass.</description>
+      <description>Method A common technique for blending objects with terrain involves using depth as an lerp factor. It usually requires first rendering the terrain and saving its color and depth information to separate textures. Then the objects rendered subsequently use the color and depth texture to blend the terrain and objects.&#xA;Genshin Impact used this method to blend the terrain and stones. But it somehow had weird shadow?&#xA;An enhanced approach to this technique, suggested by Wang in GDC 2023, involves rendering the terrain twice: once in the opaque pass and once in the transparent pass.</description>
     </item>
     <item>
       <title>Depth</title>
@@ -64,34 +57,6 @@
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/archives/</guid>
       <description></description>
-    </item>
-    <item>
-      <title>Markdown Syntax Guide</title>
-      <link>http://localhost:1313/post/drafts/markdown-syntax/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/drafts/markdown-syntax/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Rich Content</title>
-      <link>http://localhost:1313/post/drafts/rich-content/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/drafts/rich-content/</guid>
-      <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;&#xA;&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;</description>
-    </item>
-    <item>
-      <title>Math Typesetting</title>
-      <link>http://localhost:1313/post/drafts/math-typesetting/</link>
-      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/drafts/math-typesetting/</guid>
-      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Emoji Support</title>
-      <link>http://localhost:1313/post/drafts/emoji-support/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/drafts/emoji-support/</guid>
-      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Contact</title>

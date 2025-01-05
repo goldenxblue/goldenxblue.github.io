@@ -74,8 +74,8 @@ Auto exposure could not use one set of parameters to adjust every scenario, for 
 
 # Source
 
-Lagarde, Sebastien, and Charles de Rousiers. _Moving Frostbite to Physically Based Rendering 2.0_. _Zotero_, [https://media.contentapi.ea.com/content/dam/eacom/frostbite/files/course-notes-moving-frostbite-to-pbr-v2.pdf](https://media.contentapi.ea.com/content/dam/eacom/frostbite/files/course-notes-moving-frostbite-to-pbr-v2.pdf).
+1. Lagarde, Sebastien, and Charles de Rousiers. _Moving Frostbite to Physically Based Rendering 2.0_. _Zotero_, [https://media.contentapi.ea.com/content/dam/eacom/frostbite/files/course-notes-moving-frostbite-to-pbr-v2.pdf](https://media.contentapi.ea.com/content/dam/eacom/frostbite/files/course-notes-moving-frostbite-to-pbr-v2.pdf).
 
-Narkowicz, Krzysztof. “Automatic Exposure.” _Krzysztof Narkowicz_, 9 Jan. 2016, [https://knarkowicz.wordpress.com/2016/01/09/automatic-exposure/](https://knarkowicz.wordpress.com/2016/01/09/automatic-exposure/).
+2. Narkowicz, Krzysztof. “Automatic Exposure.” _Krzysztof Narkowicz_, 9 Jan. 2016, [https://knarkowicz.wordpress.com/2016/01/09/automatic-exposure/](https://knarkowicz.wordpress.com/2016/01/09/automatic-exposure/).
 
-Romain Guy and Mathias Agopian. _Physically Based Rendering in Filament_. [https://google.github.io/filament/Filament.html](https://google.github.io/filament/Filament.html). Accessed 12 Aug. 2024.
+3. Romain Guy and Mathias Agopian. _Physically Based Rendering in Filament_. [https://google.github.io/filament/Filament.html](https://google.github.io/filament/Filament.html). Accessed 12 Aug. 2024.

@@ -109,8 +109,8 @@ Academy Color Encoding System. It usually involves matrix transformations.
 
 # Sources
 
-“Film Contrast Characteristics.” _Archive.org_, 2025, [web.archive.org/web/20201031155700/www.sprawls.org/ppmi2/FILMCON/.](web.archive.org/web/20201031155700/www.sprawls.org/ppmi2/FILMCON)
+1. “Film Contrast Characteristics.” _Archive.org_, 2025, [web.archive.org/web/20201031155700/www.sprawls.org/ppmi2/FILMCON/.](web.archive.org/web/20201031155700/www.sprawls.org/ppmi2/FILMCON)
 
-“Tone Mapping.” _Github.io_, 2019, [64.github.io/tonemapping/#local-tone-mapping-operators](64.github.io/tonemapping/#local-tone-mapping-operators).
+2. “Tone Mapping.” _Github.io_, 2019, [64.github.io/tonemapping/#local-tone-mapping-operators](64.github.io/tonemapping/#local-tone-mapping-operators).
 
 

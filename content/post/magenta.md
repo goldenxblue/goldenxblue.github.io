@@ -20,8 +20,8 @@ The brain average the received wavelength to determine the color. Green is the r
 
 Sources:
 
-Schaidler, John. “Pink Cement Wall.” _Unsplash.com_, Unsplash, 17 Oct. 2019, unsplash.com/photos/D6mZtrRZVGs
+1. Schaidler, John. “Pink Cement Wall.” _Unsplash.com_, Unsplash, 17 Oct. 2019, unsplash.com/photos/D6mZtrRZVGs
 
-‌Settembre, Amelia. “Magenta: The Color That Doesn’t Exist and Why.” _The Startup_, 4 Mar. 2020, medium.com/swlh/magenta-the-color-that-doesnt-exist-and-why-ec40a6348256.
+2. ‌Settembre, Amelia. “Magenta: The Color That Doesn’t Exist and Why.” _The Startup_, 4 Mar. 2020, medium.com/swlh/magenta-the-color-that-doesnt-exist-and-why-ec40a6348256.
 
-SciShow Psych. “Magenta Is All in Your Head.” _YouTube_, 24 Feb. 2020, www.youtube.com/watch?v=DRuPF6JtWdw.‌
+3. SciShow Psych. “Magenta Is All in Your Head.” _YouTube_, 24 Feb. 2020, www.youtube.com/watch?v=DRuPF6JtWdw.‌

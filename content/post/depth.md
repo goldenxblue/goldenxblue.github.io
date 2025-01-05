@@ -18,7 +18,7 @@ Overdraw is simly drawing the same pixel  multiple times, because depth test is 
 
 # Depth Texture
 
-Depth texture stores the the depth buffer's value but in the range `[0,1]` based on the near and the far clip planes of the camera. Unity's depth texture is `_CameraDepthTexture`. 
+Depth texture stores the the depth buffer's value but in the range ``[0,1]`` based on the near and the far clip planes of the camera. Unity's depth texture is `_CameraDepthTexture`. 
 Depth texture is created before rendering the translucent objects, so only opaque objects contribute to the depth buffer. That is why only transparent rendering can sample the depth texture in Unity.
 
 **World Space Position Reconstruction**
@@ -27,14 +27,16 @@ Unity's URP documentation provideds an [example](https://docs.unity3d.com/6000.0
 
 Or the detecting/scanning VFX you can see in many games.
 
+{{< youtube KBlqRmpvzhc >}}
+
 
 
 # Sources
 
-Ameye, Alexander. “Edge Detection Outlines.” _Ameye.dev_, 2022, [ameye.dev/notes/edge-detection-outlines](ameye.dev/notes/edge-detection-outlines)
+1. Ameye, Alexander. “Edge Detection Outlines.” _Ameye.dev_, 2022, [ameye.dev/notes/edge-detection-outlines](ameye.dev/notes/edge-detection-outlines)
 
-Cyanilux. “Depth.” _Cyanilux.com_, 25 Nov. 2020, [www.cyanilux.com/tutorials/depth](www.cyanilux.com/tutorials/depth)
+2. Cyanilux. “Depth.” _Cyanilux.com_, 25 Nov. 2020, [www.cyanilux.com/tutorials/depth](www.cyanilux.com/tutorials/depth)
 
-Daniel Ilett. “Decals & Stickers in Unity Shader Graph and URP.” _YouTube_, 26 Sept. 2021, [www.youtube.com/watch?v=f7iO9ernEmM](www.youtube.com/watch?v=f7iO9ernEmM).
+3. Daniel Ilett. “Decals & Stickers in Unity Shader Graph and URP.” _YouTube_, 26 Sept. 2021, [www.youtube.com/watch?v=f7iO9ernEmM](www.youtube.com/watch?v=f7iO9ernEmM).
 
-Unity Technologies. “Unity - Manual: Reconstruct World Space Positions in a Shader in URP.” _Unity3d.com_, 2024, [docs.unity3d.com/6000.0/Documentation/Manual/urp/writing-shaders-urp-reconstruct-world-position.html](docs.unity3d.com/6000.0/Documentation/Manual/urp/writing-shaders-urp-reconstruct-world-position.html)
+4. Unity Technologies. “Unity - Manual: Reconstruct World Space Positions in a Shader in URP.” _Unity3d.com_, 2024, [docs.unity3d.com/6000.0/Documentation/Manual/urp/writing-shaders-urp-reconstruct-world-position.html](docs.unity3d.com/6000.0/Documentation/Manual/urp/writing-shaders-urp-reconstruct-world-position.html)
