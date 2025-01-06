@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Emoji on Rendering Components</title>
-    <link>http://localhost:1313/tags/emoji/</link>
-    <description>Recent content in Emoji on Rendering Components</description>
+    <title>Emoji on Golden Blue</title>
+    <link>https://example.com/tags/emoji/</link>
+    <description>Recent content in Emoji on Golden Blue</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2025 Kyle</copyright>
     <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/emoji/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.com/tags/emoji/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emoji Support</title>
-      <link>http://localhost:1313/post/drafts/emoji-support/</link>
+      <link>https://example.com/post/drafts/emoji-support/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/drafts/emoji-support/</guid>
+      <guid>https://example.com/post/drafts/emoji-support/</guid>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
   </channel>

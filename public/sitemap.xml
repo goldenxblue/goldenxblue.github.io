@@ -2,44 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://example.com/post/drafts/placeholder-text/</loc>
+    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/</loc>
     <lastmod>2024-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/index/</loc>
+    <loc>https://example.com/tags/index/</loc>
     <lastmod>2024-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>https://example.com/post/</loc>
     <lastmod>2024-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/single-layer-water/</loc>
+    <loc>https://example.com/post/single-layer-water/</loc>
     <lastmod>2024-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://example.com/tags/</loc>
     <lastmod>2024-10-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/exposure/</loc>
+    <loc>https://example.com/post/stylized-waterfall/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/post/exposure/</loc>
     <lastmod>2024-08-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/tonemapping/</loc>
+    <loc>https://example.com/post/tonemapping/</loc>
     <lastmod>2024-02-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/terrain-blending/</loc>
+    <loc>https://example.com/post/terrain-blending/</loc>
     <lastmod>2023-10-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/depth/</loc>
+    <loc>https://example.com/post/depth/</loc>
     <lastmod>2023-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/magenta/</loc>
+    <loc>https://example.com/post/magenta/</loc>
     <lastmod>2020-12-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://example.com/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/contact/</loc>
+    <loc>https://example.com/categories/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tags/css/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tags/html/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tags/markdown/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/post/drafts/markdown-syntax/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/categories/syntax/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/categories/themes/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tags/privacy/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/post/drafts/rich-content/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tags/shortcodes/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tags/text/</loc>
+    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/post/drafts/math-typesetting/</loc>
+    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/tags/emoji/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/post/drafts/emoji-support/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/contact/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://example.com/about/</loc>
   </url>
 </urlset>

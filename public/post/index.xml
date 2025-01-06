@@ -2,54 +2,96 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Golden Blue</title>
-    <link>http://localhost:1313/post/</link>
+    <link>https://example.com/post/</link>
     <description>Recent content in Posts on Golden Blue</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2025 Kyle</copyright>
     <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Placeholder Text</title>
+      <link>https://example.com/post/drafts/placeholder-text/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/drafts/placeholder-text/</guid>
+      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Single Layer Water</title>
-      <link>http://localhost:1313/post/single-layer-water/</link>
+      <link>https://example.com/post/single-layer-water/</link>
       <pubDate>Tue, 29 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/single-layer-water/</guid>
+      <guid>https://example.com/post/single-layer-water/</guid>
       <description>Unreal Engine has a physically-based shading model for its single-layer water material. Instead of using a predefined water color, it calculates the water color through light scattering and absorption.&#xA;Some tutorials also mentioned this appraoch:&#xA;Yet Another Stylised Water Shader by Remy. Realistic Water Colour in ShaderGraph by eleonora I went through Unreal&amp;rsquo;s shading code and figured the absorption and scattering light calculation part. It&amp;rsquo;s a interesting method so here I am sharing with you if you don&amp;rsquo;t want to read code.</description>
     </item>
     <item>
+      <title>Stylized Waterfall</title>
+      <link>https://example.com/post/stylized-waterfall/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/stylized-waterfall/</guid>
+      <description>The waterfall is inspired by Genshin Impact&amp;rsquo;s waterfall.&#xA;Typically, we need to set texture tiling manually to prevent unwanted stretching.&#xA;However, there&amp;rsquo;s a trick to achieve automatic texture tiling under certain conditions. Thatis to use object&amp;rsquo;s scale as factors to adjust the tiling. The scale is stored in the model matrix, which is accessible via the unity_ObjectToWorld.&#xA;float objXScale = length( float3(unity_ObjectToWorld[0].x, unity_ObjectToWorld[1].x, unity_ObjectToWorld[2].x) ); float objZScale = length( float3(unity_ObjectToWorld[0].z, unity_ObjectToWorld[1].</description>
+    </item>
+    <item>
       <title>Exposure</title>
-      <link>http://localhost:1313/post/exposure/</link>
+      <link>https://example.com/post/exposure/</link>
       <pubDate>Tue, 13 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/exposure/</guid>
+      <guid>https://example.com/post/exposure/</guid>
       <description>Exposure Value Physical camera use aperture size (f-number), shutter speed, and sensitivity to represent an Exposure Value (EV).&#xA;$$ EV_{100} = \log_2{\frac{N^2}{t}} + \log_2 \frac{S}{100} $$ N = f-number, t = shutter speed in second. Sensitivity is 100 per convention.&#xA;EV100 is a standardized measurement for exposure value, but I don&amp;rsquo;t understand how it actually achieve this &amp;ldquo;standardized measurement&amp;rdquo;. Anyway, keep on.&#xA;In game development, EV is abused by using as a light unit (Lagarde and Rousiers, 27): $$ EV​ = \log_2​​ \frac{L_{\text{avg}} \cdot S}{K}​ $$ $L_{avg}$ = average scene luminance.</description>
     </item>
     <item>
       <title>Tonemapping</title>
-      <link>http://localhost:1313/post/tonemapping/</link>
+      <link>https://example.com/post/tonemapping/</link>
       <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/tonemapping/</guid>
+      <guid>https://example.com/post/tonemapping/</guid>
       <description>If you don&amp;rsquo;t know the theory and methods behind Tonemapping, it&amp;rsquo;s simply a tool to adjust the color like color grading. But they are not the same thing. Tonemappin&amp;rsquo;s purpose is to conver the High Dynamic Range (HDR) color to Standard Dynamic Range (SDR).&#xA;Video game always uses coor value exceeds the range between 0 and 1, like bloom and or HDR texture. To display these color, Tonemapping is used to remap the color in the post-processing.</description>
     </item>
     <item>
       <title>Terrain Blending</title>
-      <link>http://localhost:1313/post/terrain-blending/</link>
+      <link>https://example.com/post/terrain-blending/</link>
       <pubDate>Tue, 17 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/terrain-blending/</guid>
+      <guid>https://example.com/post/terrain-blending/</guid>
       <description>Method A common technique for blending objects with terrain involves using depth as an lerp factor. It usually requires first rendering the terrain and saving its color and depth information to separate textures. Then the objects rendered subsequently use the color and depth texture to blend the terrain and objects.&#xA;Genshin Impact used this method to blend the terrain and stones. But it somehow had weird shadow?&#xA;An enhanced approach to this technique, suggested by Wang in GDC 2023, involves rendering the terrain twice: once in the opaque pass and once in the transparent pass.</description>
     </item>
     <item>
       <title>Depth</title>
-      <link>http://localhost:1313/post/depth/</link>
+      <link>https://example.com/post/depth/</link>
       <pubDate>Thu, 11 May 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/depth/</guid>
+      <guid>https://example.com/post/depth/</guid>
       <description>The best explaination about depth in rendering is by Cyanilux.&#xA;Early Depth Test, Alpha Test, Overdraw One example using depth to optimize the rendering is the early depth test. The depth value of the incoming pixel is compared to the existing value in the depth buffer. The depth test passes when the comparison satisfies the depth test function. It skips the pixel shading, otherwise. In this way, the GPU rejects many shading calculation of the occluded objects.</description>
     </item>
     <item>
       <title>Magenta</title>
-      <link>http://localhost:1313/post/magenta/</link>
+      <link>https://example.com/post/magenta/</link>
       <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/post/magenta/</guid>
+      <guid>https://example.com/post/magenta/</guid>
       <description>Lovecraft&amp;rsquo;s described a color outside of the visible spectrum in his novel Color Out of Space. This color was emitted from an alien creature which destroyed an area later in the. Even though the idea of a color that is outside the spectrum sounds illogical, but magenta is such color. We can see magenta, but it doesn&amp;rsquo;t exist in the spectrum.&#xA;Magenta is loosely defined as purplish-red or reddish-purple. In color wheels of the RGB, it is located exactly midway between red and blue.</description>
+    </item>
+    <item>
+      <title>Markdown Syntax Guide</title>
+      <link>https://example.com/post/drafts/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/drafts/markdown-syntax/</guid>
+      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rich Content</title>
+      <link>https://example.com/post/drafts/rich-content/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/drafts/rich-content/</guid>
+      <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;&#xA;&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>Math Typesetting</title>
+      <link>https://example.com/post/drafts/math-typesetting/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/drafts/math-typesetting/</guid>
+      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Emoji Support</title>
+      <link>https://example.com/post/drafts/emoji-support/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/drafts/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
