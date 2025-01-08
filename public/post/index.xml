@@ -52,6 +52,13 @@
       <description>The best explaination about depth in rendering is by Cyanilux.&#xA;Early Depth Test, Alpha Test, Overdraw One example using depth to optimize the rendering is the early depth test. The depth value of the incoming pixel is compared to the existing value in the depth buffer. The depth test passes when the comparison satisfies the depth test function. It skips the pixel shading, otherwise. In this way, the GPU rejects many shading calculation of the occluded objects.</description>
     </item>
     <item>
+      <title>Rock Detail</title>
+      <link>http://localhost:1313/post/rock-detail/</link>
+      <pubDate>Wed, 07 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/rock-detail/</guid>
+      <description>Secondary maps, or detail maps, allow us to overlay additional textures on top of base textures. It&amp;rsquo;s a common technique to add details on object to make it more visually interesting.&#xA;Rock in video games is often scaled up and placed on terrain to create interesting environments. However, when models are scaled up, their textures are also scaled, resulting blurry and pixlated appearances.&#xA;Detail maps solve this problem by seamlessly tiling additional textures over the base texture, maintaining visual quality in large scales.</description>
+    </item>
+    <item>
       <title>Portfolio Video</title>
       <link>http://localhost:1313/post/portfolio-video/</link>
       <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
