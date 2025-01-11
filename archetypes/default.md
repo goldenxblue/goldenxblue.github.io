@@ -1,5 +1,5 @@
 +++
-authro = "Kyle Fang"
+author = "Kyle Fang"
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
 date = {{ .Date }}
 math = false

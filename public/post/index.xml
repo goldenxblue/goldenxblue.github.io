@@ -31,6 +31,13 @@
       <description>Exposure Value Physical camera use aperture size (f-number), shutter speed, and sensitivity to represent an Exposure Value (EV).&#xA;$$ EV_{100} = \log_2{\frac{N^2}{t}} + \log_2 \frac{S}{100} $$ N = f-number, t = shutter speed in second. Sensitivity is 100 per convention.&#xA;EV100 is a standardized measurement for exposure value, but I don&amp;rsquo;t understand how it actually achieve this &amp;ldquo;standardized measurement&amp;rdquo;. Anyway, keep on.&#xA;In game development, EV is abused by using as a light unit (Lagarde and Rousiers, 27): $$ EV​ = \log_2​​ \frac{L_{\text{avg}} \cdot S}{K}​ $$ $L_{avg}$ = average scene luminance.</description>
     </item>
     <item>
+      <title>Decal</title>
+      <link>http://localhost:1313/post/decal/</link>
+      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/decal/</guid>
+      <description>There are two types of decals in video games: mesh-based decals and screen space decals. Mesh-based decals are, as the name suggests, basically meshes that stick tightly to an object&amp;rsquo;s surface. Check Fewes&amp;rsquo; MeshDecal for an example. They maintain correct perspective and depth at all angles since they&amp;rsquo;re essentially another opaque object. These work best for decals that need to be viewed from extreme angles, or when depth and perspective are crucial.</description>
+    </item>
+    <item>
       <title>Tonemapping</title>
       <link>http://localhost:1313/post/tonemapping/</link>
       <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
@@ -64,6 +71,13 @@
       <pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/portfolio-video/</guid>
       <description> </description>
+    </item>
+    <item>
+      <title>2d Moon Phase</title>
+      <link>http://localhost:1313/post/2d-moon-phase/</link>
+      <pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/2d-moon-phase/</guid>
+      <description>A nice trick I learned from Flogelz!&#xA;To create sphere-like lighting on a quad, we first need to calculate the normal. Here&amp;rsquo;s how we do it&#xA;float2 centerUV = (uv - 0.5) * (-2) float z = sqrt(1.0 - saturate(dot(centerUV, centerUV))); float3 normal = float3(centerUV.x, centerUV.y, z); First we shift the UV coordinates to the center, the calculate the z component of the normal based on UVs as x and y.</description>
     </item>
     <item>
       <title>Magenta</title>

@@ -1,5 +1,5 @@
 +++
-authro = "Kyle Fang"
+author = "Kyle Fang"
 title = 'Portfolio Video'
 date = 2022-03-01
 +++

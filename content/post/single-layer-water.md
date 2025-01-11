@@ -1,5 +1,5 @@
 +++
-authro = "Kyle Fang"
+author = "Kyle Fang"
 title = 'Single Layer Water'
 date = 2024-10-29
 math = true

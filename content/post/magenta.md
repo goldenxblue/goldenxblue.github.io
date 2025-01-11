@@ -1,5 +1,5 @@
 +++
-authro = "Kyle Fang"
+author = "Kyle Fang"
 title = 'Magenta'
 date = 2020-12-22
 +++

@@ -114,6 +114,17 @@ In game development, EV is abused by using as a light unit (Lagarde and Rousiers
 				</section>
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/post/decal/">Decal</a></h1>
+					<time>May 28, 2024</time>
+					<br><div class="description">
+	
+	There are two types of decals in video games: mesh-based decals and screen space decals. Mesh-based decals are, as the name suggests, basically meshes that stick tightly to an object&rsquo;s surface. Check Fewes&rsquo; MeshDecal for an example. They maintain correct perspective and depth at all angles since they&rsquo;re essentially another opaque object. These work best for decals that need to be viewed from extreme angles, or when depth and perspective are crucial.&hellip;
+	
+</div>
+					<a class="readmore" href="/post/decal/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/post/tonemapping/">Tonemapping</a></h1>
 					<time>Feb 4, 2024</time>
 					<br><div class="description">
@@ -175,18 +186,30 @@ Detail maps solve this problem by seamlessly tiling additional textures over the
 				</section>
 				
 				<section class="list-item">
-					<h1 class="title"><a href="/post/magenta/">Magenta</a></h1>
-					<time>Dec 22, 2020</time>
+					<h1 class="title"><a href="/post/2d-moon-phase/">2d Moon Phase</a></h1>
+					<time>Dec 30, 2021</time>
 					<br><div class="description">
 	
-	Lovecraft&rsquo;s described a color outside of the visible spectrum in his novel Color Out of Space. This color was emitted from an alien creature which destroyed an area later in the. Even though the idea of a color that is outside the spectrum sounds illogical, but magenta is such color. We can see magenta, but it doesn&rsquo;t exist in the spectrum.
-Magenta is loosely defined as purplish-red or reddish-purple. In color wheels of the RGB, it is located exactly midway between red and blue.&hellip;
+	A nice trick I learned from Flogelz!
+To create sphere-like lighting on a quad, we first need to calculate the normal. Here&rsquo;s how we do it
+float2 centerUV = (uv - 0.5) * (-2) float z = sqrt(1.0 - saturate(dot(centerUV, centerUV))); float3 normal = float3(centerUV.x, centerUV.y, z); First we shift the UV coordinates to the center, the calculate the z component of the normal based on UVs as x and y.&hellip;
 	
 </div>
-					<a class="readmore" href="/post/magenta/">Read more ⟶</a>
+					<a class="readmore" href="/post/2d-moon-phase/">Read more ⟶</a>
 				</section>
 				
 				
+
+<ul class="pagination">
+	<span class="page-item page-prev">
+	
+	</span>
+	<span class="page-item page-next">
+	
+    <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">Next →</span></a>
+	
+	</span>
+</ul>
 
 
 			</main>

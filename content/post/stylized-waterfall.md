@@ -1,5 +1,5 @@
 +++
-authro = "Kyle Fang"
+author = "Kyle Fang"
 title = 'Stylized Waterfall'
 date = 2024-10-24
 +++
