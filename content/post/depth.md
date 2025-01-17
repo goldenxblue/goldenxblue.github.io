@@ -1,5 +1,5 @@
 +++
-authro = "Kyle Fang"
+author = "Kyle Fang"
 title = 'Depth'
 date = 2023-05-11
 math = false

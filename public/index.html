@@ -73,6 +73,18 @@
 				
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/post/vfx-decal/">Recreation, Honkai Star Rail VFX Decal</a></h1>
+					<time>Jan 17, 2025</time>
+					<br><div class="description">
+	
+	I found an interesting decal in the game. At first I thought it was a mesh decal, but I realized I was wrong. I noticed that characters get a red outline when they are near the decal, and the cube VFX in the center also has a red outline.
+This appears to be created using edge detection, with the edge detection implemented in the decal rather than in general post-processing. Here is my attempt to recreate it.&hellip;
+	
+</div>
+					<a class="readmore" href="/post/vfx-decal/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/post/single-layer-water/">Single Layer Water</a></h1>
 					<time>Oct 29, 2024</time>
 					<br><div class="description">
@@ -162,6 +174,19 @@ Early Depth Test, Alpha Test, Overdraw One example using depth to optimize the r
 				</section>
 				
 				<section class="list-item">
+					<h1 class="title"><a href="/post/ice/">Ice</a></h1>
+					<time>Nov 13, 2022</time>
+					<br><div class="description">
+	
+	Refraction is a key optical property of transparent materials like ice, glass, water, and plastic. Snell&rsquo;s law provides the accurate mathematical formula for refraction, but we often avoid implementatin true refraction due to the performance consideration.
+Transparen object&rsquo;s can lead to overdraw, so expensive calculation should be minimized. Additionally, artists typically prefer simpler workflows and are refluctant to work with technical parameters like medium IOR values.
+A common approximation technique for refraction invovles offseting the UV coordinates based on surface normal.&hellip;
+	
+</div>
+					<a class="readmore" href="/post/ice/">Read more ⟶</a>
+				</section>
+				
+				<section class="list-item">
 					<h1 class="title"><a href="/post/rock-detail/">Rock Detail</a></h1>
 					<time>Sep 7, 2022</time>
 					<br><div class="description">
@@ -172,30 +197,6 @@ Detail maps solve this problem by seamlessly tiling additional textures over the
 	
 </div>
 					<a class="readmore" href="/post/rock-detail/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/post/portfolio-video/">Portfolio Video</a></h1>
-					<time>Mar 1, 2022</time>
-					<br><div class="description">
-	
-	 &hellip;
-	
-</div>
-					<a class="readmore" href="/post/portfolio-video/">Read more ⟶</a>
-				</section>
-				
-				<section class="list-item">
-					<h1 class="title"><a href="/post/2d-moon-phase/">2d Moon Phase</a></h1>
-					<time>Dec 30, 2021</time>
-					<br><div class="description">
-	
-	A nice trick I learned from Flogelz!
-To create sphere-like lighting on a quad, we first need to calculate the normal. Here&rsquo;s how we do it
-float2 centerUV = (uv - 0.5) * (-2) float z = sqrt(1.0 - saturate(dot(centerUV, centerUV))); float3 normal = float3(centerUV.x, centerUV.y, z); First we shift the UV coordinates to the center, the calculate the z component of the normal based on UVs as x and y.&hellip;
-	
-</div>
-					<a class="readmore" href="/post/2d-moon-phase/">Read more ⟶</a>
 				</section>
 				
 				

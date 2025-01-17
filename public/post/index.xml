@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© 2025 Kyle</copyright>
-    <lastBuildDate>Tue, 29 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recreation, Honkai Star Rail VFX Decal</title>
+      <link>http://localhost:1313/post/vfx-decal/</link>
+      <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/vfx-decal/</guid>
+      <description>I found an interesting decal in the game. At first I thought it was a mesh decal, but I realized I was wrong. I noticed that characters get a red outline when they are near the decal, and the cube VFX in the center also has a red outline.&#xA;This appears to be created using edge detection, with the edge detection implemented in the decal rather than in general post-processing. Here is my attempt to recreate it.</description>
+    </item>
     <item>
       <title>Single Layer Water</title>
       <link>http://localhost:1313/post/single-layer-water/</link>
@@ -57,6 +64,13 @@
       <pubDate>Thu, 11 May 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/post/depth/</guid>
       <description>The best explaination about depth in rendering is by Cyanilux.&#xA;Early Depth Test, Alpha Test, Overdraw One example using depth to optimize the rendering is the early depth test. The depth value of the incoming pixel is compared to the existing value in the depth buffer. The depth test passes when the comparison satisfies the depth test function. It skips the pixel shading, otherwise. In this way, the GPU rejects many shading calculation of the occluded objects.</description>
+    </item>
+    <item>
+      <title>Ice</title>
+      <link>http://localhost:1313/post/ice/</link>
+      <pubDate>Sun, 13 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/ice/</guid>
+      <description>Refraction is a key optical property of transparent materials like ice, glass, water, and plastic. Snell&amp;rsquo;s law provides the accurate mathematical formula for refraction, but we often avoid implementatin true refraction due to the performance consideration.&#xA;Transparen object&amp;rsquo;s can lead to overdraw, so expensive calculation should be minimized. Additionally, artists typically prefer simpler workflows and are refluctant to work with technical parameters like medium IOR values.&#xA;A common approximation technique for refraction invovles offseting the UV coordinates based on surface normal.</description>
     </item>
     <item>
       <title>Rock Detail</title>

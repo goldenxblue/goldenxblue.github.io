@@ -3,16 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/index/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/vfx-decal/</loc>
+    <lastmod>2025-01-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-05-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/single-layer-water/</loc>
     <lastmod>2024-10-29T00:00:00+00:00</lastmod>
@@ -23,6 +26,9 @@
     <loc>http://localhost:1313/post/exposure/</loc>
     <lastmod>2024-08-13T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/post/decal/</loc>
+    <lastmod>2024-05-28T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/post/tonemapping/</loc>
     <lastmod>2024-02-04T00:00:00+00:00</lastmod>
   </url><url>
@@ -31,6 +37,9 @@
   </url><url>
     <loc>http://localhost:1313/post/depth/</loc>
     <lastmod>2023-05-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/ice/</loc>
+    <lastmod>2022-11-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/rock-detail/</loc>
     <lastmod>2022-09-07T00:00:00+00:00</lastmod>

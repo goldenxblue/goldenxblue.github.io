@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html><head lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Ice - Golden Blue</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Refraction is a key optical property of transparent materials like ice, glass, water, and plastic. Snell&rsquo;s law provides the accurate mathematical formula for refraction, but we often avoid implementatin true refraction due to the performance consideration.
+Transparen object&rsquo;s can lead to overdraw, so expensive calculation should be minimized. Additionally, artists typically prefer simpler workflows and are refluctant to work with technical parameters like medium IOR values.
+A common approximation technique for refraction invovles offseting the UV coordinates based on surface normal." />
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content="http://localhost:1313/post/ice/">
+  <meta property="og:site_name" content="Golden Blue">
+  <meta property="og:title" content="Ice">
+  <meta property="og:description" content="Refraction is a key optical property of transparent materials like ice, glass, water, and plastic. Snell’s law provides the accurate mathematical formula for refraction, but we often avoid implementatin true refraction due to the performance consideration.
+Transparen object’s can lead to overdraw, so expensive calculation should be minimized. Additionally, artists typically prefer simpler workflows and are refluctant to work with technical parameters like medium IOR values.
+A common approximation technique for refraction invovles offseting the UV coordinates based on surface normal.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2022-11-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-11-13T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ice">
+  <meta name="twitter:description" content="Refraction is a key optical property of transparent materials like ice, glass, water, and plastic. Snell’s law provides the accurate mathematical formula for refraction, but we often avoid implementatin true refraction due to the performance consideration.
+Transparen object’s can lead to overdraw, so expensive calculation should be minimized. Additionally, artists typically prefer simpler workflows and are refluctant to work with technical parameters like medium IOR values.
+A common approximation technique for refraction invovles offseting the UV coordinates based on surface normal.">
+
+	
+        <link href="http://localhost:1313/css/fonts.11a1877508139eac0b5b4852ceb110c35641b3533321e66e39149e901ed5756b.css" rel="stylesheet">
+	
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="http://localhost:1313/css/main.fa747a9bb099b7bfd5d71b78a6e8ca2e23a425384e48bf533f1d357aeb61d265.css" />
+
+	
+	
+		<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+
+		
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [['$','$'], ['\\(','\\)']],
+				displayMath: [['$$','$$'], ['\[','\]']],
+				processEscapes: true,
+				processEnvironments: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+				TeX: { equationNumbers: { autoNumber: "AMS" },
+						 extensions: ["AMSmath.js", "AMSsymbols.js"] }
+			}
+		});
+		</script>
+	
+
+	
+	
+
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="http://localhost:1313/">Golden Blue</a>
+	</div>
+	<nav>
+		
+		<a href="/posts">Posts</a>
+		
+		<a href="/about">About</a>
+		
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Ice</h1>
+			<div class="meta">Posted on Nov 13, 2022</div>
+		</div>
+		
+
+		
+
+		<section class="body">
+			<p>Refraction is a key optical property of transparent materials like ice, glass, water, and plastic. <a href="https://en.wikipedia.org/wiki/Snell%27s_law">Snell&rsquo;s law</a> provides the accurate mathematical formula for refraction, but we often avoid implementatin true refraction due to the performance consideration.</p>
+<p>Transparen object&rsquo;s can lead to overdraw, so expensive calculation should be minimized. Additionally, artists typically prefer simpler workflows and are refluctant to work with technical parameters like medium IOR values.</p>
+<p>A common approximation technique for refraction invovles offseting the UV coordinates based on surface normal.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>float3 normalVS = mul(normalWS, (float3x3) UNITY_MATRIX_I_V);  
+</span></span><span style="display:flex;"><span>screenUV += normalVS.xy * 0.05f;
+</span></span><span style="display:flex;"><span>// or
+</span></span><span style="display:flex;"><span>screenUV += normalWS.xy * 0.05f;
+</span></span><span style="display:flex;"><span>// or both
+</span></span></code></pre></div><p>Notice that the view-space normals create a dynamic refraction effect that responds to camera rotation.</p>
+
+
+    
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Y3gY1DF2oZ4?autoplay=0&controls=1&end=0&loop=0&mute=0&start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"
+      ></iframe>
+    </div>
+
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			
+		</div>
+		</article>
+</main>
+<footer>
+  <div style="display:flex"></div>
+  <div class="footer-info">
+    2025  © 2025 Kyle |  <a
+      href="https://github.com/athul/archie">Archie Theme</a> | Built with <a href="https://gohugo.io">Hugo</a>
+  </div>
+</footer>
+</div>
+    </body>
+</html>

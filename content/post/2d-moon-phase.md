@@ -1,5 +1,5 @@
 +++
-authro = "Kyle Fang"
+author = "Kyle Fang"
 title = '2d Moon Phase'
 date = 2021-12-30
 +++
